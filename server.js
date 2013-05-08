@@ -1,10 +1,11 @@
 // reference the http module so we can create a webserver
 var http = require("http"), url = require("url");
+var clientResp = require('./clientResp.js');
 
 // create a server
 http.createServer(function(request, response) {
-// Attach listener on end event. 
-   request.on('end', function () { 
+// Attach listener
+ request.on('end', function () { 
       // Parse the request for arguments and store them in _get variable. 
       // This function parses the url from request and returns object representation. 
       var _get = url.parse(request.url, true).query; 
@@ -13,8 +14,8 @@ http.createServer(function(request, response) {
          'Content-Type': 'text/plain'
       }); 
       // Send data and end response. 
-      response.end('Here is your data: ' + _get['data'] + ',' + _get['data2']); 
-   }); 
+      response.end('Here is your data: ' + _get['data']); 
+   }) ;
 }).listen(process.env.PORT, process.env.IP);
 
 // Note: when spawning a server on Cloud9 IDE, 

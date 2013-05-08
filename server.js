@@ -6,6 +6,11 @@ var clientResp = require('./clientResp.js');
 http.createServer(function(request, response) {
 // Attach listener
  request.on('end', function () { 
+     
+     
+     var path = url.parse(request.url,true).pathname;
+     if(path=='/input/'){
+     
       // Parse the request for arguments and store them in _get variable. 
       // This function parses the url from request and returns object representation. 
       var _get = url.parse(request.url, true).query; 
@@ -14,7 +19,8 @@ http.createServer(function(request, response) {
          'Content-Type': 'text/plain'
       }); 
       // Send data and end response. 
-      response.end('Here is your data: ' + _get['data']); 
+      response.end(clientResp.message(_get['data'])); }
+      
    }) ;
 }).listen(process.env.PORT, process.env.IP);
 

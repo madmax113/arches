@@ -1,9 +1,3 @@
-var PI = Math.PI;
- 
-exports.area = function (r) {
-  return PI * r * r;
-};
- 
-exports.circumference = function (r) {
-  return 2 * PI * r;
+exports.message = function(params) {
+    return "param1= " + params;
 };

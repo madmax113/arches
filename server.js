@@ -1,5 +1,10 @@
+//Project Arches.
+//HTTP Server 
+//Author: meghan.desai@gmail.com
 // reference the http module so we can create a webserver
-var http = require("http"), url = require("url");
+var http = require("http");
+var url = require("url");
+var router = require("./router.js");
 var clientResp = require('./clientResp.js');
 
 // create a server
@@ -9,6 +14,7 @@ http.createServer(function(request, response) {
      
      
      var path = url.parse(request.url,true).pathname;
+     
      if(path=='/input/'){
      
       // Parse the request for arguments and store them in _get variable. 
@@ -19,7 +25,11 @@ http.createServer(function(request, response) {
          'Content-Type': 'text/plain'
       }); 
       // Send data and end response. 
-      response.end(clientResp.message(_get['data'])); }
+      response.end("Project Arches Prototype\n" + clientResp.message(_get['data'])); }
+      else{
+          response.end("Project Arches Prototype\nNo Parameters Detected!");
+      }
+      
       
    }) ;
 }).listen(process.env.PORT, process.env.IP);

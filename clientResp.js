@@ -1,3 +1,3 @@
 exports.message = function(params) {
-    return "param1= " + params;
+    return "Your Parameter = " + params;
 };

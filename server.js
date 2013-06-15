@@ -5,7 +5,7 @@
 var express = require("express");
 var app = express();
 app.use(express.logger());
-var intro = 'Welcome to the Project Arches Prototype!';
+var intro = 'Welcome to the Project Arches Prototype! ';
 
 app.get('/', function(request, response) {
   response.send(intro + 'You provided no paramaters!');

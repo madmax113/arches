@@ -13,7 +13,7 @@ app.get('/', function(request, response) {
 
 
 app.get('/input/', function(req, res){
-  res.send(intro + 'Your paramater is: ' + req.param('data'));
+  res.send(intro + "\n\n" + req.param('data'));
 });
 
 var port = process.env.PORT || 5000;

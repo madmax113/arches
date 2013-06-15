@@ -9,17 +9,9 @@ var express = require("express");
 var app = express();
 app.use(express.logger());
 
-var getParam = new function(path){
-    
-   if(path.substring(0,13)==="/input/?data=") return path.substring(13,path.length);
-   else return "[No params or invalid params]";
-
-};
-
 app.get('/', function(request, response) {
   var path = url.parse(request.url,true).pathname;
-  var param = getParam(path);
-  response.send('Welcome to the Project Arches Prototype! Your paramater is '+param);
+  response.send('Welcome to the Project Arches Prototype! Your path is '+path);
 });
 
 var port = process.env.PORT || 5000;
